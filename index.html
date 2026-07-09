@@ -38,10 +38,11 @@
     },
     "sameAs": [
       "https://t.me/RedWhite_edu",
-      "https://instagram.com/redwhite.uz"
+      "https://instagram.com/redwhite.uz",
+      "https://www.facebook.com/share/15xAXj1LT6p/"
     ],
     "makesOffer": [
-      { "@type": "Offer", "name": "Пакет «Стандарт»", "price": "2050", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "Пакет «Стандарт»", "price": "1950", "priceCurrency": "EUR" },
       { "@type": "Offer", "name": "Пакет «Максимум»", "price": "2250", "priceCurrency": "EUR" },
       { "@type": "Offer", "name": "Пакет «Максимум + Язык»", "price": "2850", "priceCurrency": "EUR" }
     ]
@@ -382,6 +383,10 @@
     .hero-badges .stamp:nth-child(1) { transform: rotate(-2deg); }
     .hero-badges .stamp:nth-child(2) { transform: rotate(1.3deg); }
     .hero-badges .stamp:nth-child(3) { transform: rotate(-1deg); }
+    .hero-flags { display: flex; align-items: center; gap: 10px 12px; margin-top: 24px; flex-wrap: wrap; }
+    .hero-flags-label { font: 700 .72rem var(--font-body); letter-spacing: .03em; text-transform: uppercase; color: var(--gray); }
+    .hero-flags .flags { display: inline-flex; gap: 7px; }
+    .hero-flags .flags svg { width: 30px; height: 21px; display: block; border-radius: 3px; box-shadow: 0 0 0 1px rgba(26,18,22,.14); }
 
     /* правая колонка: арка + сова + вращающийся штамп */
     .hero-visual { position: relative; max-width: 470px; margin-inline: auto; }
@@ -640,6 +645,10 @@
     .uni-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 2px solid var(--ink); border-radius: 12px; background: var(--blush); }
     .uni-gallery img.img-failed { opacity: 0; }
     .uni-modal-cta { margin-top: 28px; width: 100%; }
+    .uni-forwhom { color: var(--ink); font-size: .98rem; font-weight: 600; }
+    .uni-forwhom b { color: var(--red); }
+    .uni-plus { margin-top: 16px; background: var(--blush); border-left: 3px solid var(--red); border-radius: 10px; padding: 15px 17px; font-size: .95rem; color: var(--gray); font-weight: 500; line-height: 1.6; }
+    .uni-plus b { display: block; color: var(--ink); font: 800 .68rem var(--font-body); letter-spacing: .11em; text-transform: uppercase; margin-bottom: 6px; }
     @media (min-width: 640px) { .uni-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1100px) { .uni-grid { grid-template-columns: repeat(4, 1fr); } }
     .uni-plate {
@@ -685,6 +694,13 @@
     .prog-txt { padding: 18px 20px; }
     .prog-txt h3 { font: 700 1rem var(--font-disp); line-height: 1.35; }
     .prog-txt p { color: var(--gray); font-size: .85rem; font-weight: 600; margin-top: 4px; }
+    /* тёмный вариант секции направлений (микс красно-бело-чёрный) */
+    .section--ink .prog-card { background: #241a1e; border-color: rgba(255,255,255,.16); }
+    .section--ink .prog-card:hover { box-shadow: 6px 6px 0 rgba(226,0,26,.4); }
+    .section--ink .prog-card:hover .prog-tab { background: var(--red-deep); }
+    .section--ink .prog-txt h3 { color: #fff; }
+    .section--ink .prog-txt p { color: rgba(255,255,255,.58); }
+    .section--ink .head-route { border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.6); }
     @media (min-width: 640px) { .prog-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1024px) {
       .prog-grid { grid-template-columns: repeat(6, 1fr); }
@@ -1180,6 +1196,36 @@
     }
     .form-success p { font: 700 1.05rem var(--font-disp); line-height: 1.5; }
 
+    /* ============ КЕЙСЫ СТУДЕНТОВ ============ */
+    .cases-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 560px) { .cases-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 980px) { .cases-grid { grid-template-columns: repeat(4, 1fr); } }
+    .case-card { background: var(--paper); border: 2px solid var(--ink); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform var(--dur) var(--ease-soft), box-shadow var(--dur) var(--ease-soft); }
+    .case-card:hover { transform: translate(-3px, -3px); box-shadow: var(--shadow-pop); }
+    .case-photo { position: relative; aspect-ratio: 1/1; background: linear-gradient(150deg, #2a1c20, #7d0d1c 70%, var(--red)); overflow: hidden; }
+    .case-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .case-photo img.img-failed { opacity: 0; }
+    .case-flag { position: absolute; top: 10px; left: 10px; width: 30px; height: 21px; border-radius: 3px; overflow: hidden; box-shadow: 0 0 0 2px #fff, 0 2px 6px rgba(0,0,0,.25); }
+    .case-flag svg { width: 100%; height: 100%; display: block; }
+    .case-body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .case-body h3 { font: 700 1.02rem var(--font-disp); }
+    .case-uni { font: 700 .8rem var(--font-body); color: var(--red); }
+    .case-quote { font-size: .88rem; color: var(--gray); font-weight: 500; font-style: italic; flex: 1; }
+    .case-year { font: 700 .64rem var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--gray-light); margin-top: 6px; }
+
+    /* ============ FAQ ============ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 860px; margin-inline: auto; }
+    .faq-item { border: 2px solid var(--ink); border-radius: 14px; overflow: hidden; background: var(--paper); transition: box-shadow var(--dur) var(--ease-soft); }
+    .faq-item.open { box-shadow: 5px 5px 0 rgba(226,0,26,.14); }
+    .faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 19px 22px; font: 700 1rem var(--font-body); text-align: left; color: var(--ink); background: none; transition: color .2s; }
+    .faq-q:hover { color: var(--red); }
+    .faq-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--red); color: var(--red); display: flex; align-items: center; justify-content: center; transition: transform .35s var(--ease), background-color .2s, color .2s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--red); color: #fff; }
+    .faq-a { height: 0; overflow: hidden; transition: height .4s var(--ease-soft); }
+    .faq-a-inner { padding: 0 22px 22px; }
+    .faq-a-inner p { color: var(--gray); font-size: .95rem; line-height: 1.7; font-weight: 500; }
+    .faq-a-inner p + p { margin-top: 12px; }
+
     /* ============ FOOTER ============ */
     .site-footer {
       background: var(--ink);
@@ -1537,6 +1583,7 @@
         <a href="#universities">Вузы</a>
         <a href="#programs">Направления</a>
         <a href="#pricing">Тарифы</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Контакты</a>
       </nav>
       <a href="#lead-form" class="btn btn-red header-cta">Получить консультацию</a>
@@ -1564,6 +1611,7 @@
       <a href="#universities">Вузы</a>
       <a href="#programs">Направления</a>
       <a href="#pricing">Тарифы</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Контакты</a>
     </nav>
     <a href="#lead-form" class="btn btn-red">Получить консультацию</a>
@@ -1601,6 +1649,17 @@
               ВНЖ + работа 20 ч/нед
             </li>
           </ul>
+          <div class="hero-flags" aria-label="Работаем со студентами из стран СНГ">
+            <span class="hero-flags-label">Работаем со студентами из:</span>
+            <span class="flags">
+              <svg viewBox="0 0 30 21" role="img"><title>Узбекистан</title><rect width="30" height="21" fill="#1EB53A"/><rect width="30" height="7" fill="#0099B5"/><rect y="7" width="30" height="7" fill="#fff"/><rect y="6.6" width="30" height=".5" fill="#CE1126"/><rect y="13.9" width="30" height=".5" fill="#CE1126"/><circle cx="6" cy="3.5" r="2" fill="#fff"/><circle cx="6.9" cy="3.5" r="1.7" fill="#0099B5"/></svg>
+              <svg viewBox="0 0 30 21" role="img"><title>Казахстан</title><rect width="30" height="21" fill="#00AFCA"/><circle cx="15" cy="9.5" r="4" fill="#FEC50C"/></svg>
+              <svg viewBox="0 0 30 21" role="img"><title>Россия</title><rect width="30" height="21" fill="#fff"/><rect y="7" width="30" height="7" fill="#0039A6"/><rect y="14" width="30" height="7" fill="#D52B1E"/></svg>
+              <svg viewBox="0 0 30 21" role="img"><title>Кыргызстан</title><rect width="30" height="21" fill="#E8112D"/><circle cx="15" cy="10.5" r="4.3" fill="#FFEF00"/></svg>
+              <svg viewBox="0 0 30 21" role="img"><title>Таджикистан</title><rect width="30" height="21" fill="#fff"/><rect width="30" height="6" fill="#CC0000"/><rect y="15" width="30" height="6" fill="#006600"/></svg>
+              <svg viewBox="0 0 30 21" role="img"><title>Украина</title><rect width="30" height="21" fill="#FFD500"/><rect width="30" height="10.5" fill="#0057B7"/></svg>
+            </span>
+          </div>
         </div>
         <div class="hero-visual">
           <div class="owl-bubble" aria-hidden="true"><b>Servus!</b> Едем учиться?</div>
@@ -1676,7 +1735,7 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </span>
             <h3>Язык на месте</h3>
-            <p>Можно прилететь с базовым уровнем немецкого или английского (А2) и легально доучить язык на подготовительном отделении при самом университете.</p>
+            <p>Можно прилететь с базовым уровнем немецкого (А2) и легально доучить язык на подготовительном отделении при самом университете.</p>
           </article>
           <article class="adv-card reveal reveal-d1">
             <span class="adv-ico" aria-hidden="true">
@@ -1801,7 +1860,7 @@
     </section>
 
     <!-- ============ БЛОК 5. НАПРАВЛЕНИЯ ============ -->
-    <section class="section section--blush" id="programs" aria-label="Направления обучения">
+    <section class="section section--ink" id="programs" aria-label="Направления обучения">
       <div class="container">
         <div class="section-head reveal">
           <div class="section-head-txt">
@@ -1883,7 +1942,7 @@
                 </span>
                 <h3 class="price-name">Пакет «Стандарт»</h3>
               </div>
-              <div class="price-value">2 050 €</div>
+              <div class="price-value">1 950 €</div>
               <div class="pass-perf" aria-hidden="true"></div>
               <div class="price-for">
                 <strong>Для кого</strong>
@@ -1893,14 +1952,14 @@
                 <li>
                   <svg class="check-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                   <div>
-                    <strong>Поступление (до 10 программ)</strong>
+                    <strong>Поступление (до 3 программ)</strong>
                     <div class="feat-desc"><div class="feat-desc-inner"><p>Подбор направлений, оценка шансов, формирование пошагового плана и техническая подача документов в университеты.</p></div></div>
                   </div>
                 </li>
                 <li>
                   <svg class="check-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                   <div>
-                    <strong>Подбор жилья (до 20 вариантов)</strong>
+                    <strong>Подбор жилья (до 10 вариантов)</strong>
                     <div class="feat-desc"><div class="feat-desc-inner"><p>Поиск общежитий под ваш бюджет, отправка заявок во все места и плотная работа с топ-5 приоритетными объектами.</p></div></div>
                   </div>
                 </li>
@@ -1925,7 +1984,7 @@
               </button>
               <div class="pass-foot">
                 <div class="pass-code" aria-hidden="true"><span class="barcode"></span><span class="pass-seat">Seat 2A</span></div>
-                <a class="btn btn-outline" data-tariff="Пакет «Стандарт»" data-price="2 050 €" target="_blank" rel="noopener noreferrer" href="https://t.me/RedWhite_edu">Оставить заявку</a>
+                <a class="btn btn-outline" data-tariff="Пакет «Стандарт»" data-price="1 950 €" target="_blank" rel="noopener noreferrer" href="https://t.me/RedWhite_edu">Оставить заявку</a>
               </div>
             </div>
           </article>
@@ -1951,7 +2010,7 @@
                 <li>
                   <svg class="check-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                   <div>
-                    <strong>Поступление (до 10 программ)</strong>
+                    <strong>Поступление (до 5 программ)</strong>
                     <div class="feat-desc"><div class="feat-desc-inner"><p>Подбор направлений, оценка шансов, пошаговый план, техническая подача.</p></div></div>
                   </div>
                 </li>
@@ -2106,6 +2165,71 @@
       </div>
     </section>
 
+    <!-- ============ КЕЙСЫ СТУДЕНТОВ ============ -->
+    <section class="section section--blush" id="cases" aria-label="Кейсы наших студентов">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-head-txt">
+            <span class="eyebrow">Наши студенты</span>
+            <h2 class="section-title">Уже <em>учатся в Австрии</em></h2>
+            <p class="section-sub">Реальные истории поступления — от первой заявки до студенческого ВНЖ и первого семестра в Вене.</p>
+          </div>
+          <span class="head-route" aria-hidden="true">CASES <b>TAS→VIE</b></span>
+        </div>
+        <!-- TODO: заменить на реальные фото и данные ваших студентов -->
+        <div class="cases-grid">
+          <article class="case-card reveal">
+            <div class="case-photo">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=500&q=68&auto=format&fit=crop&crop=faces" alt="Студентка Red White Edu" loading="lazy" onerror="this.classList.add('img-failed')">
+              <span class="case-flag" aria-label="Узбекистан"><svg viewBox="0 0 30 21" role="img"><title>Узбекистан</title><rect width="30" height="21" fill="#1EB53A"/><rect width="30" height="7" fill="#0099B5"/><rect y="7" width="30" height="7" fill="#fff"/><rect y="6.6" width="30" height=".5" fill="#CE1126"/><rect y="13.9" width="30" height=".5" fill="#CE1126"/><circle cx="6" cy="3.5" r="2" fill="#fff"/><circle cx="6.9" cy="3.5" r="1.7" fill="#0099B5"/></svg></span>
+            </div>
+            <div class="case-body">
+              <h3>Азиза Р.</h3>
+              <p class="case-uni">WU Wien · Международный менеджмент</p>
+              <p class="case-quote">«Путь от заявки до ВНЖ занял 4 месяца — всю бюрократию взяли на себя.»</p>
+              <span class="case-year">Ташкент → Вена · 2025</span>
+            </div>
+          </article>
+          <article class="case-card reveal reveal-d1">
+            <div class="case-photo">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=500&q=68&auto=format&fit=crop&crop=faces" alt="Студент Red White Edu" loading="lazy" onerror="this.classList.add('img-failed')">
+              <span class="case-flag" aria-label="Россия"><svg viewBox="0 0 30 21" role="img"><title>Россия</title><rect width="30" height="21" fill="#fff"/><rect y="7" width="30" height="7" fill="#0039A6"/><rect y="14" width="30" height="7" fill="#D52B1E"/></svg></span>
+            </div>
+            <div class="case-body">
+              <h3>Дмитрий К.</h3>
+              <p class="case-uni">TU Wien · Data Science</p>
+              <p class="case-quote">«Встретили в аэропорту, помогли с SIM-картой и жильём в первый же день.»</p>
+              <span class="case-year">Москва → Вена · 2025</span>
+            </div>
+          </article>
+          <article class="case-card reveal reveal-d2">
+            <div class="case-photo">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=500&q=68&auto=format&fit=crop&crop=faces" alt="Студентка Red White Edu" loading="lazy" onerror="this.classList.add('img-failed')">
+              <span class="case-flag" aria-label="Казахстан"><svg viewBox="0 0 30 21" role="img"><title>Казахстан</title><rect width="30" height="21" fill="#00AFCA"/><circle cx="15" cy="9.5" r="4" fill="#FEC50C"/></svg></span>
+            </div>
+            <div class="case-body">
+              <h3>Камила Н.</h3>
+              <p class="case-uni">Universität Wien · Психология</p>
+              <p class="case-quote">«Поступила с немецким А2 и спокойно доучиваю язык прямо в Вене.»</p>
+              <span class="case-year">Алматы → Вена · 2024</span>
+            </div>
+          </article>
+          <article class="case-card reveal reveal-d3">
+            <div class="case-photo">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&h=500&q=68&auto=format&fit=crop&crop=faces" alt="Студент Red White Edu" loading="lazy" onerror="this.classList.add('img-failed')">
+              <span class="case-flag" aria-label="Узбекистан"><svg viewBox="0 0 30 21" role="img"><title>Узбекистан</title><rect width="30" height="21" fill="#1EB53A"/><rect width="30" height="7" fill="#0099B5"/><rect y="7" width="30" height="7" fill="#fff"/><rect y="6.6" width="30" height=".5" fill="#CE1126"/><rect y="13.9" width="30" height=".5" fill="#CE1126"/><circle cx="6" cy="3.5" r="2" fill="#fff"/><circle cx="6.9" cy="3.5" r="1.7" fill="#0099B5"/></svg></span>
+            </div>
+            <div class="case-body">
+              <h3>Тимур А.</h3>
+              <p class="case-uni">Uni Graz · Экономика</p>
+              <p class="case-quote">«Грац оказался идеальным студенческим городом — и заметно дешевле Вены.»</p>
+              <span class="case-year">Самарканд → Грац · 2024</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ БЛОК 7. ENGLIBEE ============ -->
     <section class="section section--ink" id="englibee" aria-label="Языковая подготовка с Englibee">
       <div class="container englibee-inner">
@@ -2147,6 +2271,62 @@
       </div>
     </section>
 
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq" aria-label="Частые вопросы">
+      <div class="container">
+        <div class="section-head reveal" style="justify-content:center;text-align:center">
+          <div class="section-head-txt">
+            <span class="eyebrow">FAQ</span>
+            <h2 class="section-title">Частые <em>вопросы</em></h2>
+          </div>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">Какие гарантии вы предоставляете при поступлении?<span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+            <div class="faq-a"><div class="faq-a-inner">
+              <p>Мы гарантируем безупречное выполнение того, что полностью зависит от нас: разработку индивидуальной стратегии, сбор и аудит документов, строгое соблюдение дедлайнов и безошибочную подачу. Если выбранная программа не подразумевает конкурсного отбора (а таких направлений в Австрии много), то точное выполнение наших инструкций — это ваш автоматический пропуск в университет.</p>
+              <p>Когда на программе есть вступительные экзамены, квоты или собеседования, финальный вердикт всегда остаётся за приёмной комиссией. Со своей стороны мы делаем всё, чтобы вы обошли конкурентов: готовим сильное портфолио, прорабатываем мотивационные письма и проводим репетиции интервью, выводя ваши шансы на максимум.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">Когда идеальное время, чтобы начать подготовку с вами?<span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+            <div class="faq-a"><div class="faq-a-inner">
+              <p>Поступление в Австрию — это комплексный процесс, где одновременно задействованы три направления: вуз, поиск жилья и оформление ВНЖ. Все они завязаны друг на друге, поэтому заниматься ими нужно параллельно.</p>
+              <p>Оптимальный срок — за 12 месяцев до начала учёбы. Это позволяет без спешки собрать документы, спокойно подтянуть язык, выбрать лучшие варианты жилья и избежать стресса из-за визовых задержек. Если времени осталось мало — мы всё равно возьмёмся за работу, но стратегия будет более жёсткой, а выбор программ и жилья может сузиться.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">На каком этапе чаще всего совершаются ошибки?<span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+            <div class="faq-a"><div class="faq-a-inner">
+              <p>Ошибки чаще всего случаются на стыке бюрократических процессов: когда документы для вуза не соответствуют требованиям для получения ВНЖ. Неправильный перевод, пропущенный дедлайн или неверно заверенная справка могут сдвинуть ваше поступление на полгода-год.</p>
+              <p>Наша поддержка — это не просто проверка бумаг. Мы даём то, чего нет в инструкциях: психологическое спокойствие, чёткий план действий и интеграцию в местное сообщество. Мы помогаем не просто приехать, а мягко адаптироваться в новой стране без чувства одиночества.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">Из чего формируется стоимость ваших услуг?<span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+            <div class="faq-a"><div class="faq-a-inner">
+              <p>Вы платите за полное управление вашим поступлением «под ключ». Мы ведём ваш кейс как серьёзный проект: фиксируем дедлайны, берём на себя коммуникацию с австрийскими ведомствами и вузами, страхуем от мелких ошибок, которые могут разрушить весь план.</p>
+              <p>Вторая составляющая — экспертиза нашей команды. Это специалисты, которые сами прошли этот путь, живут в Австрии и ежедневно взаимодействуют с местной системой. Вы получаете не сухую теорию из интернета, а актуальный практический опыт. Мы работаем прозрачно: никаких скрытых комиссий или внезапных доплат.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">Зачем мне сопровождение, если всё можно сделать самому?<span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+            <div class="faq-a"><div class="faq-a-inner">
+              <p>Самостоятельно поступить реально. Но для этого понадобятся сотни часов свободного времени, идеальное знание немецкого/английского и готовность рисковать. В Австрии цена малейшей ошибки — потерянный семестр и тысячи евро на повторные подачи.</p>
+              <p>Сопровождение с нами — это инвестиция в спокойствие и гарантированный результат. Мы превращаем сложный бюрократический квест в понятный пошаговый процесс и знаем, как решать проблемы даже тогда, когда кажется, что сроки упущены.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">К каким дополнительным расходам нужно быть готовым?<span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+            <div class="faq-a"><div class="faq-a-inner">
+              <p>Помимо оплаты наших услуг, закладывайте бюджет на официальные сборы: пошлины за рассмотрение документов вузом, консульские сборы при подаче на ВНЖ, обязательную медицинскую страховку, залог за студенческое жильё (Kaution) и подтверждение финансовой независимости на банковском счету.</p>
+              <p>Мы составляем для вас полную финансовую карту ещё до старта работы, чтобы финальные цифры не стали для вас сюрпризом.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ БЛОК 8. ФОРМА ============ -->
     <section class="section contact-section" id="contact" aria-label="Заявка на консультацию и контакты">
       <div class="container">
@@ -2180,7 +2360,7 @@
                 <label for="lead-tariff">Тариф / услуга</label>
                 <select id="lead-tariff" name="tariff">
                   <option selected>Пока не знаю — нужна бесплатная консультация</option>
-                  <option>Пакет «Стандарт» — 2 050 €</option>
+                  <option>Пакет «Стандарт» — 1 950 €</option>
                   <option>Пакет «Максимум» — 2 250 €</option>
                   <option>Пакет «Максимум + Язык» — 2 850 €</option>
                   <option>Подбор жилья — 500 €</option>
@@ -2243,6 +2423,12 @@
               <a href="https://instagram.com/redwhite.uz" target="_blank" rel="noopener noreferrer">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
                 Instagram: redwhite.uz
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/share/15xAXj1LT6p/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                Facebook
               </a>
             </li>
             <li>
@@ -2441,10 +2627,12 @@
           <div class="uni-fact"><b>~90 000</b><span>студентов</span></div>
           <div class="uni-fact"><b>15</b><span>факультетов</span></div>
         </div>
+        <p class="uni-forwhom"><b>Кому подойдёт:</b> тем, кто ищет классическое европейское образование и диплом с мировым именем.</p>
         <h4>О университете</h4>
-        <p>Старейший университет немецкоязычного мира и один из старейших в Центральной Европе — основан в 1365 году герцогом Рудольфом IV. Сегодня это крупнейший университет Австрии: около 90 000 студентов и тысячи преподавателей. Главное здание на бульваре Рингштрассе — памятник архитектуры и символ академической Вены. С университетом связаны десятки лауреатов Нобелевской премии.</p>
+        <p>Абсолютный престиж: вузу более 650 лет, среди его выпускников — нобелевские лауреаты и культовые учёные. Его диплом — знак высшей пробы для работодателей по всему миру. Сегодня это крупнейший университет Австрии: около 90 000 студентов и 15 факультетов, главное здание — на бульваре Рингштрассе.</p>
+        <div class="uni-plus"><b>Главный плюс</b> Сюда можно поступить с базовым знанием немецкого языка (уровень А2). Университет зачисляет вас и даёт возможность доучить язык на официальном подготовительном отделении прямо в Вене, сохраняя за вами место на основном курсе.</div>
         <h4>Сильные направления</h4>
-        <ul class="uni-strengths"><li>Гуманитарные науки</li><li>Право</li><li>Естественные науки</li><li>Психология</li><li>Социальные науки</li><li>История и филология</li><li>Экономика</li></ul>
+        <ul class="uni-strengths"><li>Психология</li><li>Международные отношения</li><li>Право</li><li>Экономика</li><li>IT</li><li>Языки</li><li>Гуманитарные науки</li><li>Естественные науки</li></ul>
         <h4>Кампус и город</h4>
         <div class="uni-gallery">
           <!-- TODO: заменить на реальные фото кампуса -->
@@ -2479,10 +2667,12 @@
           <div class="uni-fact"><b>~21 000</b><span>студентов</span></div>
           <div class="uni-fact"><b>Triple Crown</b><span>аккредитации</span></div>
         </div>
+        <p class="uni-forwhom"><b>Кому подойдёт:</b> будущим лидерам бизнеса, стартаперам и топ-менеджерам.</p>
         <h4>О университете</h4>
-        <p>Крупнейший университет бизнеса и экономики в Европейском союзе. WU обладает престижной «тройной короной» международных аккредитаций — AACSB, EQUIS и AMBA, которой отмечено менее 1% бизнес-школ мира. Современный кампус Campus WU, открытый в 2013 году, — архитектурная достопримечательность Вены: его Библиотеку и учебный центр спроектировала Заха Хадид.</p>
+        <p>Бизнес-школа №1 в немецкоязычном пространстве. Обладает престижной «тройной короной» аккредитаций (AACSB, EQUIS, AMBA), которой отмечено менее 1% бизнес-школ мира. Суперсовременный кампус спроектирован лучшими архитекторами мира (Библиотека — от Захи Хадид) и больше похож на штаб-квартиру технологического гиганта.</p>
+        <div class="uni-plus"><b>Главный плюс</b> Огромный выбор программ полностью на английском языке и теснейшие связи с глобальными корпорациями. Нетворкинг и стажировки начинаются прямо во время учёбы, открывая прямой путь в международный бизнес.</div>
         <h4>Сильные направления</h4>
-        <ul class="uni-strengths"><li>Бизнес-администрирование</li><li>Экономика</li><li>Финансы</li><li>Международный бизнес</li><li>Маркетинг</li><li>Менеджмент</li><li>Бизнес и право</li></ul>
+        <ul class="uni-strengths"><li>Международный менеджмент</li><li>Маркетинг</li><li>Финансы</li><li>Бизнес-информатика</li><li>Экономика</li><li>Право</li></ul>
         <h4>Кампус и город</h4>
         <div class="uni-gallery">
           <!-- TODO: заменить на реальные фото кампуса -->
@@ -2517,10 +2707,12 @@
           <div class="uni-fact"><b>~28 000</b><span>студентов</span></div>
           <div class="uni-fact"><b>8</b><span>факультетов</span></div>
         </div>
+        <p class="uni-forwhom"><b>Кому подойдёт:</b> тем, кто хочет создавать технологии будущего и быть нарасхват у работодателей.</p>
         <h4>О университете</h4>
-        <p>Ведущий технический университет Австрии, основан в 1815 году. Главный центр инженерных, IT и естественных наук страны — стабильно входит в мировые рейтинги по информатике и инженерии. Восемь факультетов охватывают всё: от архитектуры и машиностроения до информатики и физики. Расположен в самом центре Вены, у площади Карлсплац.</p>
+        <p>Мощнейшая практическая и научная база в самом сердце Европы, основан в 1815 году. Выпускников этого вуза крупные европейские технологические компании и IT-гиганты приглашают на работу ещё до официального вручения дипломов. Расположен в самом центре Вены, у площади Карлсплац.</p>
+        <div class="uni-plus"><b>Главный плюс</b> Работа над реальными инновационными проектами и стартапами в современных лабораториях университета. Прекрасный выбор программ магистратуры на английском языке.</div>
         <h4>Сильные направления</h4>
-        <ul class="uni-strengths"><li>Информатика и Data Science</li><li>Электротехника</li><li>Машиностроение</li><li>Гражданское строительство</li><li>Архитектура</li><li>Физика</li><li>Математика</li></ul>
+        <ul class="uni-strengths"><li>Разработка ПО</li><li>Data Science</li><li>Архитектура</li><li>Робототехника</li><li>Машиностроение</li><li>Гражданское строительство</li><li>Кибербезопасность</li></ul>
         <h4>Кампус и город</h4>
         <div class="uni-gallery">
           <!-- TODO: заменить на реальные фото кампуса -->
@@ -2555,10 +2747,12 @@
           <div class="uni-fact"><b>~30 000</b><span>студентов</span></div>
           <div class="uni-fact"><b>6</b><span>факультетов</span></div>
         </div>
+        <p class="uni-forwhom"><b>Кому подойдёт:</b> тем, кто хочет учиться в уютном, истинно студенческом городе Европы и получить топовое образование.</p>
         <h4>О университете</h4>
-        <p>Второй по возрасту университет Австрии, основан в 1585 году эрцгерцогом Карлом II и позже назван также в честь императора Франца. Сердце «студенческой столицы» Граца — города из списка Всемирного наследия ЮНЕСКО. Здесь работали шесть будущих нобелевских лауреатов, в том числе Эрвин Шрёдингер. Сильная классическая научно-исследовательская школа.</p>
+        <p>Второй по величине и возрасту классический университет Австрии, основан в 1585 году. Грац — официальный город студентов, где каждый пятый житель учится в вузе, что создаёт потрясающую молодёжную атмосферу. Здесь работали шесть будущих нобелевских лауреатов, в том числе Эрвин Шрёдингер.</p>
+        <div class="uni-plus"><b>Главный плюс</b> Очень сильные исследовательские программы и тесное сотрудничество по обмену с лучшими вузами мира. Жизнь и аренда жилья в Граце заметно доступнее, чем в Вене, при этом качество образования и ценность диплома остаются на высочайшем австрийском уровне.</div>
         <h4>Сильные направления</h4>
-        <ul class="uni-strengths"><li>Гуманитарные науки</li><li>Естественные науки</li><li>Право</li><li>Социальные и экономические науки</li><li>Теология</li><li>Экология и региональные науки</li></ul>
+        <ul class="uni-strengths"><li>Юриспруденция</li><li>Бизнес и экономика</li><li>Химия</li><li>Физика</li><li>Биология</li><li>Гуманитарные науки</li><li>Экология и регионоведение</li></ul>
         <h4>Кампус и город</h4>
         <div class="uni-gallery">
           <!-- TODO: заменить на реальные фото кампуса -->
@@ -2728,7 +2922,7 @@
         });
       });
     }, { rootMargin: "-40% 0px -55% 0px" });
-    ["advantages", "cities", "universities", "programs", "pricing", "contact"].forEach(function (id) {
+    ["advantages", "cities", "universities", "programs", "pricing", "cases", "faq", "contact"].forEach(function (id) {
       const el = document.getElementById(id);
       if (el) spyObserver.observe(el);
     });
@@ -2812,6 +3006,30 @@
             fd.style.height = "0px";         // …и плавно к нулю
           }
         });
+      });
+    });
+
+    /* ============ FAQ-АККОРДЕОН ============ */
+    document.querySelectorAll(".faq-q").forEach(function (btn) {
+      const item = btn.closest(".faq-item");
+      const ans = item.querySelector(".faq-a");
+      const inner = ans.firstElementChild;
+      btn.addEventListener("click", function () {
+        const opening = !item.classList.contains("open");
+        item.classList.toggle("open", opening);
+        btn.setAttribute("aria-expanded", opening ? "true" : "false");
+        if (opening) {
+          ans.style.height = inner.offsetHeight + "px";
+          ans.addEventListener("transitionend", function te(e) {
+            if (e.propertyName !== "height") return;
+            ans.style.height = "auto";
+            ans.removeEventListener("transitionend", te);
+          });
+        } else {
+          ans.style.height = inner.offsetHeight + "px";
+          void ans.offsetHeight;
+          ans.style.height = "0px";
+        }
       });
     });
 
