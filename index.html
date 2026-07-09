@@ -559,6 +559,12 @@
     .city-body h3 { font: 700 1.06rem var(--font-disp); display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; line-height: 1.35; }
     .city-body h3 .latin { color: var(--gray); font: 700 .8rem var(--font-body); letter-spacing: .04em; }
     .city-body p { color: var(--gray); font-size: .94rem; font-weight: 500; }
+    /* тёмный вариант секции городов (микс красно-бело-чёрный) */
+    .section--ink .city-card { background: #241a1e; border-color: rgba(255,255,255,.16); }
+    .section--ink .city-card:hover { box-shadow: 6px 6px 0 rgba(226,0,26,.4); }
+    .section--ink .city-body h3 { color: #fff; }
+    .section--ink .city-body h3 .latin { color: rgba(255,255,255,.55); }
+    .section--ink .city-body p { color: rgba(255,255,255,.62); }
     @media (min-width: 900px) {
       .cities-grid {
         grid-template-columns: 1.22fr 1fr;
@@ -1756,7 +1762,7 @@
     </section>
 
     <!-- ============ БЛОК 3. ГОРОДА ============ -->
-    <section class="section section--blush" id="cities" aria-label="Города Австрии для учёбы">
+    <section class="section section--ink" id="cities" aria-label="Города Австрии для учёбы">
       <div class="container">
         <div class="section-head reveal">
           <div class="section-head-txt">
