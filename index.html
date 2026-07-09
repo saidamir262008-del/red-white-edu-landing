@@ -575,6 +575,8 @@
       border: 2px solid var(--ink);
       border-radius: 14px;
       padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
       transition: transform var(--dur) var(--ease-soft), box-shadow var(--dur) var(--ease-soft);
     }
     .uni-card::before {
@@ -586,10 +588,58 @@
       pointer-events: none;
     }
     .uni-card:hover { transform: translate(-3px, -3px); box-shadow: var(--shadow-pop); }
-    .uni-crest { width: 54px; height: 60px; color: var(--red); margin-bottom: 16px; }
+    /* логотип вуза на белом чипе — унифицирует разные фирменные цвета */
+    .uni-logo {
+      height: 62px; margin-bottom: 18px;
+      display: flex; align-items: center;
+    }
+    .uni-logo svg { height: 100%; width: auto; max-width: 100%; }
     .uni-card h3 { font: 700 1.02rem var(--font-disp); line-height: 1.35; }
     .uni-card h3 .latin { display: block; color: var(--gray); font: 700 .78rem var(--font-body); letter-spacing: .05em; margin-top: 4px; }
     .uni-card p { color: var(--gray); font-size: .92rem; font-weight: 500; margin-top: 10px; }
+    .uni-more {
+      margin-top: 16px; align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 8px;
+      font: 800 .74rem var(--font-body); letter-spacing: .07em; text-transform: uppercase;
+      color: var(--red); background: none; border: none; padding: 6px 0; cursor: pointer;
+      position: relative;
+    }
+    .uni-more::after { content: ""; position: absolute; left: 0; bottom: 2px; width: 100%; height: 2px; background: var(--red); transform: scaleX(.4); transform-origin: left; transition: transform var(--dur) var(--ease); }
+    .uni-more:hover::after { transform: scaleX(1); }
+    .uni-more svg { transition: transform var(--dur) var(--ease); }
+    .uni-more:hover svg { transform: translateX(3px); }
+
+    /* ---- полноэкранная модалка вуза (спец. .modal.modal--uni, чтобы перебить .modal) ---- */
+    .modal.modal--uni {
+      max-width: min(1060px, 96vw); width: 100%; max-height: 94vh;
+      padding: 0; overflow: hidden; display: flex; flex-direction: column;
+    }
+    .modal--uni .modal-close { top: 16px; right: 16px; z-index: 6; background: rgba(255,255,255,.94); border-color: rgba(26,18,22,.15); }
+    .uni-hero { position: relative; height: clamp(190px, 34vh, 320px); flex-shrink: 0; overflow: hidden; background: linear-gradient(135deg, #2a1c20, #7d0d1c 70%, var(--red)); }
+    .uni-hero > img { width: 100%; height: 100%; object-fit: cover; }
+    .uni-hero > img.img-failed { opacity: 0; }
+    .uni-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,18,22,.9), rgba(26,18,22,.25) 55%, rgba(26,18,22,.4)); }
+    .uni-hero-badge { position: absolute; top: 18px; left: 18px; z-index: 2; background: #fff; border: 2px solid var(--ink); border-radius: 12px; padding: 9px 12px; height: 52px; display: flex; align-items: center; box-shadow: 3px 3px 0 rgba(26,18,22,.2); }
+    .uni-hero-badge svg { height: 100%; width: auto; }
+    .uni-hero-cap { position: absolute; left: 22px; right: 22px; bottom: 20px; z-index: 2; color: #fff; }
+    .uni-hero-cap h3 { font: 800 clamp(1.15rem, 1rem + 1.6vw, 1.85rem) var(--font-disp); text-transform: uppercase; line-height: 1.12; text-wrap: balance; }
+    .uni-hero-cap .latin { display: block; margin-top: 6px; font: 700 .82rem var(--font-body); letter-spacing: .04em; color: rgba(255,255,255,.82); }
+    .uni-body { overflow-y: auto; padding: clamp(20px, 3vw, 34px); }
+    .uni-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    @media (min-width: 620px) { .uni-facts { grid-template-columns: repeat(4, 1fr); } }
+    .uni-fact { border: 2px dashed var(--line); border-radius: 12px; padding: 14px 16px; background: var(--blush); }
+    .uni-fact b { display: block; font: 800 1.25rem var(--font-disp); color: var(--red); line-height: 1; font-variant-numeric: tabular-nums; }
+    .uni-fact span { display: block; margin-top: 6px; font: 700 .68rem var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--gray); }
+    .uni-body h4 { font: 700 .78rem var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin: 28px 0 12px; }
+    .uni-body h4::after { content: ""; display: block; width: 28px; height: 3px; border-radius: 2px; background: var(--red); margin-top: 8px; }
+    .uni-body > p { color: var(--gray); font-size: .97rem; line-height: 1.7; font-weight: 500; }
+    .uni-strengths { display: flex; flex-wrap: wrap; gap: 9px; }
+    .uni-strengths li { display: inline-flex; align-items: center; gap: 7px; border: 1.5px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: .86rem; font-weight: 600; color: var(--ink); }
+    .uni-strengths li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+    .uni-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
+    .uni-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 2px solid var(--ink); border-radius: 12px; background: var(--blush); }
+    .uni-gallery img.img-failed { opacity: 0; }
+    .uni-modal-cta { margin-top: 28px; width: 100%; }
     @media (min-width: 640px) { .uni-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1100px) { .uni-grid { grid-template-columns: repeat(4, 1fr); } }
     .uni-plate {
@@ -1696,28 +1746,40 @@
         </div>
         <div class="uni-grid">
           <article class="uni-card reveal">
-            <!-- TODO: вставить официальные логотипы вузов -->
-            <svg class="uni-crest" viewBox="0 0 58 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M29 2 54 10v20c0 16-10 26-25 30C14 56 4 46 4 30V10z"/><path d="M17 26h24M19 26v14M29 26v14M39 26v14M16 44h26M29 12l8 8H21z"/></svg>
+            <!-- TODO: заменить на официальный логотип (сейчас — реконструкция печати) -->
+            <div class="uni-logo">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#fff" stroke="#111" stroke-width="1.6"/><circle cx="50" cy="50" r="40" fill="none" stroke="#111" stroke-width="1"/><path id="uwRingA" d="M50 11a39 39 0 1 1-.01 0" fill="none"/><text font-family="Georgia,serif" font-size="7" font-weight="600" letter-spacing="1.3" fill="#111"><textPath href="#uwRingA" startOffset="2%">· VIENNENSIS · SAPIENTIAE · STVDII ·</textPath></text><path d="M31 44a19 15 0 0 1 38 0" fill="none" stroke="#111" stroke-width="1.3"/><path d="M31 44v25M69 44v25M29 70h42" stroke="#111" stroke-width="1.3" stroke-linecap="round"/><circle cx="50" cy="45" r="4.6" fill="none" stroke="#111" stroke-width="1.3"/><path d="M44.5 69.5 46 52a4 4 0 0 1 8 0l1.5 17.5z" fill="none" stroke="#111" stroke-width="1.3" stroke-linejoin="round"/><rect x="54.5" y="48" width="7.5" height="8.5" fill="none" stroke="#111" stroke-width="1.1"/><line x1="42" y1="49" x2="45.5" y2="63" stroke="#111" stroke-width="1.1"/></svg>
+            </div>
             <h3>Венский государственный университет <span class="latin">(Universität Wien)</span></h3>
             <p>Один из старейших и самых престижных вузов Центральной Европы.</p>
+            <button class="uni-more" data-modal-open="modal-uni-wien" aria-label="Подробнее о Венском государственном университете">Подробнее <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </article>
           <article class="uni-card reveal reveal-d1">
-            <!-- TODO: вставить официальные логотипы вузов -->
-            <svg class="uni-crest" viewBox="0 0 58 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M29 2 54 10v20c0 16-10 26-25 30C14 56 4 46 4 30V10z"/><path d="M15 42V26l7 8 7-10 7 10 7-8v16z"/></svg>
+            <!-- TODO: заменить на официальный логотип WU -->
+            <div class="uni-logo">
+              <svg viewBox="0 0 130 92" aria-hidden="true"><text x="65" y="54" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="600" font-size="62" letter-spacing="-3" fill="#111">WU</text><text x="65" y="82" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="500" font-size="14" letter-spacing="7" fill="#111">VIENNA</text></svg>
+            </div>
             <h3>Венский экономический университет <span class="latin">(WU)</span></h3>
             <p>Крупнейший бизнес-университет Европы с мощнейшими программами в сфере бизнеса и экономики.</p>
+            <button class="uni-more" data-modal-open="modal-uni-wu" aria-label="Подробнее о Венском экономическом университете">Подробнее <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </article>
           <article class="uni-card reveal reveal-d2">
-            <!-- TODO: вставить официальные логотипы вузов -->
-            <svg class="uni-crest" viewBox="0 0 58 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M29 2 54 10v20c0 16-10 26-25 30C14 56 4 46 4 30V10z"/><circle cx="29" cy="30" r="10"/><path d="M29 20v-5M29 45v-5M19 30h-5M44 30h-5M29 30l5-5"/></svg>
+            <!-- TODO: заменить на официальный логотип TU Wien -->
+            <div class="uni-logo">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="1.5" y="1.5" width="97" height="97" rx="16" fill="#006699"/><rect x="14" y="23" width="33" height="9" fill="#fff"/><rect x="25.5" y="23" width="10" height="41" fill="#fff"/><path d="M52 23 L52 47 A17 17 0 0 0 86 47 L86 23 L76 23 L76 47 A7 7 0 0 1 62 47 L62 23 Z" fill="#fff"/><text x="50" y="85" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="700" font-size="14" letter-spacing="3.5" fill="#fff">WIEN</text></svg>
+            </div>
             <h3>Венский технический университет <span class="latin">(TU Wien)</span></h3>
             <p>Главный центр инженерных, IT и технических наук в стране.</p>
+            <button class="uni-more" data-modal-open="modal-uni-tu" aria-label="Подробнее о Венском техническом университете">Подробнее <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </article>
           <article class="uni-card reveal reveal-d3">
-            <!-- TODO: вставить официальные логотипы вузов -->
-            <svg class="uni-crest" viewBox="0 0 58 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M29 2 54 10v20c0 16-10 26-25 30C14 56 4 46 4 30V10z"/><path d="M29 16v28M29 16c-6 4-6 10 0 14-6 4-6 10 0 14M29 16c6 4 6 10 0 14 6 4 6 10 0 14"/></svg>
+            <!-- TODO: заменить на официальный логотип Uni Graz -->
+            <div class="uni-logo">
+              <svg viewBox="0 0 104 92" aria-hidden="true"><rect x="1" y="1" width="102" height="90" fill="#fff" stroke="#D6D6D6" stroke-width="2"/><rect x="35" y="3" width="66" height="63" fill="#FFD500"/><rect x="35" y="66" width="66" height="23" fill="#111"/><text x="68" y="52" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="800" font-size="27" fill="#111" letter-spacing="-1">UNI</text><text x="68" y="85" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="800" font-size="22" fill="#FFD500" letter-spacing="-1">GRAZ</text></svg>
+            </div>
             <h3>Университет Граца им. Карла и Франца <span class="latin">(Uni Graz)</span></h3>
             <p>Один из ведущих классических научно-исследовательских университетов.</p>
+            <button class="uni-more" data-modal-open="modal-uni-graz" aria-label="Подробнее об Университете Граца">Подробнее <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </article>
         </div>
         <div class="uni-plate reveal">
@@ -2345,6 +2407,159 @@
     </div>
   </div>
 
+  <!-- ============ МОДАЛКИ ВУЗОВ (на всю страницу) ============ -->
+  <div class="modal-backdrop" id="modal-uni-wien" role="dialog" aria-modal="true" aria-labelledby="uni-wien-title">
+    <div class="modal modal--uni">
+      <button class="modal-close" aria-label="Закрыть окно">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="uni-hero">
+        <!-- TODO: заменить на фото главного здания Universität Wien -->
+        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?w=1200&q=72&auto=format&fit=crop" alt="Историческая университетская библиотека" loading="lazy" onerror="this.classList.add('img-failed')">
+        <span class="uni-hero-badge">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#fff" stroke="#111" stroke-width="1.6"/><circle cx="50" cy="50" r="40" fill="none" stroke="#111" stroke-width="1"/><path id="uwRingB" d="M50 11a39 39 0 1 1-.01 0" fill="none"/><text font-family="Georgia,serif" font-size="7" font-weight="600" letter-spacing="1.3" fill="#111"><textPath href="#uwRingB" startOffset="2%">· VIENNENSIS · SAPIENTIAE · STVDII ·</textPath></text><path d="M31 44a19 15 0 0 1 38 0" fill="none" stroke="#111" stroke-width="1.3"/><path d="M31 44v25M69 44v25M29 70h42" stroke="#111" stroke-width="1.3" stroke-linecap="round"/><circle cx="50" cy="45" r="4.6" fill="none" stroke="#111" stroke-width="1.3"/><path d="M44.5 69.5 46 52a4 4 0 0 1 8 0l1.5 17.5z" fill="none" stroke="#111" stroke-width="1.3" stroke-linejoin="round"/><rect x="54.5" y="48" width="7.5" height="8.5" fill="none" stroke="#111" stroke-width="1.1"/><line x1="42" y1="49" x2="45.5" y2="63" stroke="#111" stroke-width="1.1"/></svg>
+        </span>
+        <div class="uni-hero-cap">
+          <h3 id="uni-wien-title">Венский государственный университет</h3>
+          <span class="latin">Universität Wien · Вена</span>
+        </div>
+      </div>
+      <div class="uni-body">
+        <div class="uni-facts">
+          <div class="uni-fact"><b>1365</b><span>основан</span></div>
+          <div class="uni-fact"><b>Вена</b><span>город</span></div>
+          <div class="uni-fact"><b>~90 000</b><span>студентов</span></div>
+          <div class="uni-fact"><b>15</b><span>факультетов</span></div>
+        </div>
+        <h4>О университете</h4>
+        <p>Старейший университет немецкоязычного мира и один из старейших в Центральной Европе — основан в 1365 году герцогом Рудольфом IV. Сегодня это крупнейший университет Австрии: около 90 000 студентов и тысячи преподавателей. Главное здание на бульваре Рингштрассе — памятник архитектуры и символ академической Вены. С университетом связаны десятки лауреатов Нобелевской премии.</p>
+        <h4>Сильные направления</h4>
+        <ul class="uni-strengths"><li>Гуманитарные науки</li><li>Право</li><li>Естественные науки</li><li>Психология</li><li>Социальные науки</li><li>История и филология</li><li>Экономика</li></ul>
+        <h4>Кампус и город</h4>
+        <div class="uni-gallery">
+          <!-- TODO: заменить на реальные фото кампуса -->
+          <img src="https://images.unsplash.com/photo-1573599852326-2d4da0bbe613?w=600&q=68&auto=format&fit=crop" alt="Вена, Австрия" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=68&auto=format&fit=crop" alt="Университетская библиотека" loading="lazy" onerror="this.classList.add('img-failed')">
+        </div>
+        <a href="#lead-form" class="btn btn-red uni-modal-cta">Подобрать программу в этом вузе <span class="btn-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modal-uni-wu" role="dialog" aria-modal="true" aria-labelledby="uni-wu-title">
+    <div class="modal modal--uni">
+      <button class="modal-close" aria-label="Закрыть окно">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="uni-hero">
+        <!-- TODO: заменить на фото Campus WU (архитектура Захи Хадид) -->
+        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&q=72&auto=format&fit=crop" alt="Современная университетская архитектура" loading="lazy" onerror="this.classList.add('img-failed')">
+        <span class="uni-hero-badge">
+          <svg viewBox="0 0 130 92" aria-hidden="true"><text x="65" y="54" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="600" font-size="62" letter-spacing="-3" fill="#111">WU</text><text x="65" y="82" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="500" font-size="14" letter-spacing="7" fill="#111">VIENNA</text></svg>
+        </span>
+        <div class="uni-hero-cap">
+          <h3 id="uni-wu-title">Венский экономический университет</h3>
+          <span class="latin">Wirtschaftsuniversität Wien (WU) · Вена</span>
+        </div>
+      </div>
+      <div class="uni-body">
+        <div class="uni-facts">
+          <div class="uni-fact"><b>1898</b><span>основан</span></div>
+          <div class="uni-fact"><b>Вена</b><span>город</span></div>
+          <div class="uni-fact"><b>~21 000</b><span>студентов</span></div>
+          <div class="uni-fact"><b>Triple Crown</b><span>аккредитации</span></div>
+        </div>
+        <h4>О университете</h4>
+        <p>Крупнейший университет бизнеса и экономики в Европейском союзе. WU обладает престижной «тройной короной» международных аккредитаций — AACSB, EQUIS и AMBA, которой отмечено менее 1% бизнес-школ мира. Современный кампус Campus WU, открытый в 2013 году, — архитектурная достопримечательность Вены: его Библиотеку и учебный центр спроектировала Заха Хадид.</p>
+        <h4>Сильные направления</h4>
+        <ul class="uni-strengths"><li>Бизнес-администрирование</li><li>Экономика</li><li>Финансы</li><li>Международный бизнес</li><li>Маркетинг</li><li>Менеджмент</li><li>Бизнес и право</li></ul>
+        <h4>Кампус и город</h4>
+        <div class="uni-gallery">
+          <!-- TODO: заменить на реальные фото кампуса -->
+          <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=600&q=68&auto=format&fit=crop" alt="Современный кампус" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=68&auto=format&fit=crop" alt="Студенты за учёбой" loading="lazy" onerror="this.classList.add('img-failed')">
+        </div>
+        <a href="#lead-form" class="btn btn-red uni-modal-cta">Подобрать программу в этом вузе <span class="btn-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modal-uni-tu" role="dialog" aria-modal="true" aria-labelledby="uni-tu-title">
+    <div class="modal modal--uni">
+      <button class="modal-close" aria-label="Закрыть окно">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="uni-hero">
+        <!-- TODO: заменить на фото главного здания TU Wien у Карлсплац -->
+        <img src="https://images.unsplash.com/photo-1524230572899-a752b3835840?w=1200&q=72&auto=format&fit=crop" alt="Университетская архитектура" loading="lazy" onerror="this.classList.add('img-failed')">
+        <span class="uni-hero-badge">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="1.5" y="1.5" width="97" height="97" rx="16" fill="#006699"/><rect x="14" y="23" width="33" height="9" fill="#fff"/><rect x="25.5" y="23" width="10" height="41" fill="#fff"/><path d="M52 23 L52 47 A17 17 0 0 0 86 47 L86 23 L76 23 L76 47 A7 7 0 0 1 62 47 L62 23 Z" fill="#fff"/><text x="50" y="85" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="700" font-size="14" letter-spacing="3.5" fill="#fff">WIEN</text></svg>
+        </span>
+        <div class="uni-hero-cap">
+          <h3 id="uni-tu-title">Венский технический университет</h3>
+          <span class="latin">Technische Universität Wien (TU Wien) · Вена</span>
+        </div>
+      </div>
+      <div class="uni-body">
+        <div class="uni-facts">
+          <div class="uni-fact"><b>1815</b><span>основан</span></div>
+          <div class="uni-fact"><b>Вена</b><span>город</span></div>
+          <div class="uni-fact"><b>~28 000</b><span>студентов</span></div>
+          <div class="uni-fact"><b>8</b><span>факультетов</span></div>
+        </div>
+        <h4>О университете</h4>
+        <p>Ведущий технический университет Австрии, основан в 1815 году. Главный центр инженерных, IT и естественных наук страны — стабильно входит в мировые рейтинги по информатике и инженерии. Восемь факультетов охватывают всё: от архитектуры и машиностроения до информатики и физики. Расположен в самом центре Вены, у площади Карлсплац.</p>
+        <h4>Сильные направления</h4>
+        <ul class="uni-strengths"><li>Информатика и Data Science</li><li>Электротехника</li><li>Машиностроение</li><li>Гражданское строительство</li><li>Архитектура</li><li>Физика</li><li>Математика</li></ul>
+        <h4>Кампус и город</h4>
+        <div class="uni-gallery">
+          <!-- TODO: заменить на реальные фото кампуса -->
+          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=68&auto=format&fit=crop" alt="Современное здание университета" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=68&auto=format&fit=crop" alt="Студенты за учёбой" loading="lazy" onerror="this.classList.add('img-failed')">
+        </div>
+        <a href="#lead-form" class="btn btn-red uni-modal-cta">Подобрать программу в этом вузе <span class="btn-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modal-uni-graz" role="dialog" aria-modal="true" aria-labelledby="uni-graz-title">
+    <div class="modal modal--uni">
+      <button class="modal-close" aria-label="Закрыть окно">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="uni-hero">
+        <!-- TODO: заменить на фото кампуса Uni Graz -->
+        <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=72&auto=format&fit=crop" alt="Старый город — атмосфера Граца, Австрия" loading="lazy" onerror="this.classList.add('img-failed')">
+        <span class="uni-hero-badge">
+          <svg viewBox="0 0 104 92" aria-hidden="true"><rect x="1" y="1" width="102" height="90" fill="#fff" stroke="#D6D6D6" stroke-width="2"/><rect x="35" y="3" width="66" height="63" fill="#FFD500"/><rect x="35" y="66" width="66" height="23" fill="#111"/><text x="68" y="52" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="800" font-size="27" fill="#111" letter-spacing="-1">UNI</text><text x="68" y="85" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="800" font-size="22" fill="#FFD500" letter-spacing="-1">GRAZ</text></svg>
+        </span>
+        <div class="uni-hero-cap">
+          <h3 id="uni-graz-title">Университет Граца им. Карла и Франца</h3>
+          <span class="latin">Karl-Franzens-Universität Graz · Грац</span>
+        </div>
+      </div>
+      <div class="uni-body">
+        <div class="uni-facts">
+          <div class="uni-fact"><b>1585</b><span>основан</span></div>
+          <div class="uni-fact"><b>Грац</b><span>город</span></div>
+          <div class="uni-fact"><b>~30 000</b><span>студентов</span></div>
+          <div class="uni-fact"><b>6</b><span>факультетов</span></div>
+        </div>
+        <h4>О университете</h4>
+        <p>Второй по возрасту университет Австрии, основан в 1585 году эрцгерцогом Карлом II и позже назван также в честь императора Франца. Сердце «студенческой столицы» Граца — города из списка Всемирного наследия ЮНЕСКО. Здесь работали шесть будущих нобелевских лауреатов, в том числе Эрвин Шрёдингер. Сильная классическая научно-исследовательская школа.</p>
+        <h4>Сильные направления</h4>
+        <ul class="uni-strengths"><li>Гуманитарные науки</li><li>Естественные науки</li><li>Право</li><li>Социальные и экономические науки</li><li>Теология</li><li>Экология и региональные науки</li></ul>
+        <h4>Кампус и город</h4>
+        <div class="uni-gallery">
+          <!-- TODO: заменить на реальные фото кампуса -->
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=68&auto=format&fit=crop" alt="Альпы Штирии" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=68&auto=format&fit=crop" alt="Здание университета" loading="lazy" onerror="this.classList.add('img-failed')">
+        </div>
+        <a href="#lead-form" class="btn btn-red uni-modal-cta">Подобрать программу в этом вузе <span class="btn-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+
   <script>
     "use strict";
 
@@ -2390,6 +2605,9 @@
         const target = document.querySelector(id);
         if (!target) return;
         e.preventDefault();
+        // если ссылка внутри открытой модалки — сначала закрываем её
+        const bd = a.closest(".modal-backdrop");
+        if (bd) closeModal(bd);
         target.scrollIntoView({ behavior: REDUCED_MOTION ? "auto" : "smooth", block: "start" });
         closeMobileMenu();
       });
