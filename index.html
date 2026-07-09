@@ -865,139 +865,89 @@
       .price-card--featured { transform: translateY(-14px); }
       .price-card--featured:hover { transform: translate(-3px, -17px); }
     }
-    /* ============ ПАРТНЁР CHARTERI.UZ — АВИАБИЛЕТ ============ */
+    /* ============ ПАРТНЁР CHARTERI.UZ — КОМПАКТНЫЙ БАННЕР ============ */
+    /* сознательно «чужой» бренд-цвет (синий Charteri) в нашей огранке: чёрная обводка + жёсткая тень */
     .charteri-strip { padding: 0 0 88px; }
-    .charteri-ticket {
+    .charteri-banner {
       position: relative;
-      display: grid;
-      grid-template-columns: 1fr;
       background:
-        radial-gradient(circle at 86% -30%, rgba(255, 255, 255, .16), transparent 46%),
-        linear-gradient(118deg, var(--red) 0%, var(--red) 52%, var(--red-deep) 100%);
+        radial-gradient(circle at 72% -50%, rgba(126, 164, 255, .5), transparent 55%),
+        linear-gradient(115deg, #2148D8 0%, #1B39B4 55%, #122A86 100%);
       border: 2.5px solid var(--ink);
-      border-radius: 26px;
-      box-shadow: 10px 10px 0 rgba(26, 18, 22, .16);
+      border-radius: 22px;
+      box-shadow: 8px 8px 0 rgba(26, 18, 22, .16);
       color: #fff;
       overflow: hidden;
       transition: transform var(--dur) var(--ease-soft), box-shadow var(--dur) var(--ease-soft);
     }
-    .charteri-ticket:hover { transform: translate(-3px, -3px); box-shadow: 13px 13px 0 rgba(26, 18, 22, .18); }
-    /* фоновая сетка «карта полёта» */
-    .charteri-ticket::before {
+    .charteri-banner:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 rgba(26, 18, 22, .18); }
+    .charteri-banner::before {
       content: "";
       position: absolute; inset: 0;
       background:
-        repeating-linear-gradient(0deg, rgba(255, 255, 255, .05) 0 1px, transparent 1px 34px),
-        repeating-linear-gradient(90deg, rgba(255, 255, 255, .05) 0 1px, transparent 1px 34px);
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, .05) 0 1px, transparent 1px 30px),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, .05) 0 1px, transparent 1px 30px);
       pointer-events: none;
     }
-    .charteri-main { position: relative; padding: 26px 26px 30px; display: flex; flex-direction: column; gap: 18px; }
-    .charteri-top {
-      display: flex; align-items: center; justify-content: space-between; gap: 14px;
-      padding-bottom: 14px;
-      border-bottom: 2px dashed rgba(255, 255, 255, .3);
-      font: 700 .62rem var(--font-disp);
-      letter-spacing: .16em; text-transform: uppercase;
-      color: rgba(255, 255, 255, .75);
+    .charteri-info { position: relative; z-index: 2; padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+    .charteri-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font: 700 .56rem var(--font-disp);
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255, 255, 255, .8);
+      border: 1.5px solid rgba(255, 255, 255, .35);
+      border-radius: 999px;
+      padding: 6px 13px;
+      background: rgba(255, 255, 255, .09);
     }
-    .charteri-top b { color: #fff; }
     .charteri-flag {
-      display: inline-block; width: 36px; height: 25px; border-radius: 4px; overflow: hidden;
-      box-shadow: 0 0 0 2.5px rgba(255, 255, 255, .9), 3px 3px 0 rgba(26, 18, 22, .25);
-      vertical-align: -2px; margin-right: 12px; flex-shrink: 0;
+      display: inline-block; width: 30px; height: 21px; border-radius: 3.5px; overflow: hidden;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, .9), 2.5px 2.5px 0 rgba(26, 18, 22, .3);
+      vertical-align: -2px; margin-right: 11px; flex-shrink: 0;
       transform: rotate(-3deg);
     }
-    @media (min-width: 880px) { .charteri-flag { width: 42px; height: 29px; } }
     .charteri-flag svg { width: 100%; height: 100%; display: block; }
-    .charteri-title { font: 700 clamp(1.35rem, .9rem + 2.2vw, 2.1rem) var(--font-disp); letter-spacing: -.01em; line-height: 1.16; max-width: 15ch; }
-    .charteri-brand {
-      display: inline-block;
-      background: #fff; color: var(--red);
-      padding: .04em .34em .08em;
-      border-radius: .32em;
-      transform: rotate(-1.4deg);
-      box-shadow: 3px 3px 0 rgba(26, 18, 22, .28);
-      white-space: nowrap;
-    }
-    .charteri-sub { font: 500 .95rem/1.55 var(--font-body); color: rgba(255, 255, 255, .88); max-width: 46ch; }
-    /* маршрут TAS ✈ VIE */
-    .charteri-route { display: flex; align-items: center; gap: 14px; max-width: 480px; }
-    .charteri-route .code { font: 700 1.05rem var(--font-disp); letter-spacing: .04em; }
-    .charteri-route .city { display: block; font: 600 .6rem var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .65); margin-top: 2px; }
-    .charteri-path {
-      flex: 1; position: relative; height: 22px; min-width: 70px;
-    }
-    .charteri-path::before {
-      content: "";
-      position: absolute; left: 0; right: 0; top: 50%;
-      height: 2.5px; transform: translateY(-50%); border-radius: 2px;
-      background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .75) 0 8px, transparent 8px 16px);
-    }
-    .charteri-path::after { content: ""; position: absolute; right: -1px; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: #fff; transform: translateY(-50%); }
-    .charteri-plane {
-      position: absolute; left: 50%; top: 50%;
-      transform: translate(-50%, -50%);
-      width: 30px; height: 30px;
-      color: #fff;
-      background: var(--red-deep);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 0 2.5px rgba(255, 255, 255, .85);
-    }
-    .charteri-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .charteri-title { font: 700 clamp(1.12rem, .82rem + 1.5vw, 1.58rem) var(--font-disp); letter-spacing: -.01em; line-height: 1.2; }
+    .charteri-brand { color: #FF3B5C; white-space: nowrap; }
+    .charteri-chips { display: flex; flex-wrap: wrap; gap: 10px 22px; }
     .charteri-chip {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 9px 15px;
-      border: 1.5px solid rgba(255, 255, 255, .45);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .12);
-      font: 700 .76rem var(--font-body);
-      letter-spacing: .02em;
-      backdrop-filter: blur(2px);
+      display: inline-flex; align-items: center; gap: 10px;
+      font: 600 .72rem/1.3 var(--font-body);
+      color: rgba(255, 255, 255, .94);
     }
-    .charteri-chip svg { flex-shrink: 0; opacity: .9; }
-    /* отрывной корешок */
-    .charteri-stub {
-      position: relative;
-      padding: 24px 26px 28px;
-      border-top: 2.5px dashed rgba(255, 255, 255, .55);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
-      text-align: center;
+    .charteri-chip .ico {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 31px; height: 31px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(255, 255, 255, .13);
+      border: 1.5px solid rgba(255, 255, 255, .3);
     }
-    .charteri-stub::before, .charteri-stub::after {
-      content: "";
-      position: absolute; top: -13px;
-      width: 24px; height: 24px; border-radius: 50%;
-      background: var(--paper);
-      border: 2.5px solid var(--ink);
-    }
-    .charteri-stub::before { left: -15px; }
-    .charteri-stub::after { right: -15px; }
-    .charteri-owl { width: 104px; height: 92px; margin-bottom: -6px; }
-    @media (prefers-reduced-motion: no-preference) {
-      .charteri-owl { animation: bob 2.4s ease-in-out infinite alternate; }
-    }
-    .charteri-stub-label { font: 700 .6rem var(--font-disp); letter-spacing: .18em; text-transform: uppercase; color: rgba(255, 255, 255, .7); }
-    .barcode--white {
-      background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .9) 0 2px, transparent 2px 5px, rgba(255, 255, 255, .9) 5px 6px, transparent 6px 9px, rgba(255, 255, 255, .9) 9px 12px, transparent 12px 14px);
-      opacity: 1;
-    }
-    .charteri-btn { background: #fff; border-color: var(--ink); color: var(--red); box-shadow: var(--shadow-pop-ink); }
-    .charteri-btn .btn-arrow { background: var(--red); }
-    .charteri-btn .btn-arrow svg { color: #fff; }
-    .charteri-btn:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 rgba(26, 18, 22, .2); background: var(--blush); }
+    .charteri-chip svg { opacity: .95; }
+    /* фото Вены справа, вплавленное в синий */
+    .charteri-visual { display: none; }
+    .charteri-btn { background: #FF3350; border-color: var(--ink); color: #fff; box-shadow: var(--shadow-pop-ink); padding: 13px 22px; font-size: .76rem; position: relative; z-index: 3; margin: -6px 22px 24px; }
+    .charteri-btn .btn-arrow { background: #fff; }
+    .charteri-btn .btn-arrow svg { color: #FF3350; }
+    .charteri-btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 rgba(26, 18, 22, .2); background: #E62B47; }
     .charteri-btn:active { transform: translate(0, 0); box-shadow: 3px 3px 0 rgba(26, 18, 22, .16); }
-    @media (min-width: 880px) {
-      .charteri-ticket { grid-template-columns: 1fr 312px; }
-      .charteri-main { padding: 30px 38px 34px; }
-      .charteri-stub {
-        border-top: 0;
-        border-left: 2.5px dashed rgba(255, 255, 255, .55);
-        padding: 28px 30px;
+    @media (min-width: 820px) {
+      .charteri-info { max-width: 55%; padding: 24px 30px 26px; }
+      .charteri-visual {
+        display: block;
+        position: absolute; inset: 0 0 0 auto; width: 47%;
+        z-index: 0;
       }
-      .charteri-stub::before, .charteri-stub::after { top: auto; }
-      .charteri-stub::before { left: -13px; top: -13px; }
-      .charteri-stub::after { left: -13px; right: auto; top: auto; bottom: -13px; }
+      .charteri-visual img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 34%);
+        mask-image: linear-gradient(90deg, transparent 0, #000 34%);
+      }
+      .charteri-visual::after {
+        content: "";
+        position: absolute; inset: 0;
+        background: linear-gradient(90deg, rgba(27, 57, 180, .5), rgba(27, 57, 180, 0) 50%);
+      }
+      .charteri-plane { position: absolute; left: -4%; top: 12%; width: 74px; height: 46px; z-index: 2; color: #fff; }
+      .charteri-btn { position: absolute; right: 18px; bottom: 18px; margin: 0; }
     }
     @media (min-width: 768px) { .charteri-strip { padding-bottom: 104px; } }
 
@@ -2375,36 +2325,27 @@
     <!-- ============ ПАРТНЁР: CHARTERI.UZ (авиабилеты) ============ -->
     <section class="section charteri-strip" id="charteri" aria-label="Авиабилеты в Австрию — партнёр Charteri.uz">
       <div class="container">
-        <article class="charteri-ticket reveal">
-          <div class="charteri-main">
-            <div class="charteri-top" aria-hidden="true">
-              <span>Partner airline pass · <b>Charteri.uz</b></span>
-              <span>Gate <b>A2</b> · TAS→<b>VIE</b></span>
-            </div>
+        <article class="charteri-banner reveal">
+          <div class="charteri-visual" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=1000&q=68&auto=format&fit=crop" alt="" loading="lazy" width="1000" height="667">
+            <svg class="charteri-plane" viewBox="0 0 90 50" aria-hidden="true">
+              <path d="M4 28h24M2 37h19" stroke="rgba(255,255,255,.65)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 8"/>
+              <g transform="rotate(64 58 25)"><path d="M58 6c1.7 0 2.8 1.1 2.8 2.8V16l17 10v4.4l-17-5V37l4.8 3.6V44l-7.6-2.1-7.6 2.1v-3.4L55.2 37V25.4l-17 5V26l17-10V8.8C55.2 7.1 56.3 6 58 6z" fill="#fff"/></g>
+            </svg>
+          </div>
+          <div class="charteri-info">
+            <span class="charteri-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.5 15.5 14 11V4.5a2 2 0 0 0-4 0V11l-7.5 4.5v2l7.5-2.3v5.3l-2.2 1.6v1.6l4.2-1.2 4.2 1.2v-1.6L14 20.5v-5.3l7.5 2.3z"/></svg>Партнёр · Авиабилеты</span>
             <h2 class="charteri-title">
               <span class="charteri-flag" aria-hidden="true"><svg viewBox="0 0 30 21"><rect width="30" height="21" fill="#fff"/><rect width="30" height="7" fill="#E2001A"/><rect y="14" width="30" height="7" fill="#E2001A"/></svg></span>
               Открой Австрию с <span class="charteri-brand">Charteri.uz</span>
             </h2>
-            <p class="charteri-sub">Учёба — с нами, перелёт — с нашим партнёром. Прямые рейсы Ташкент → Вена по лучшим ценам.</p>
-            <div class="charteri-route" aria-label="Маршрут: Ташкент — Вена, прямой рейс">
-              <span><span class="code">TAS</span><span class="city">Ташкент</span></span>
-              <span class="charteri-path" aria-hidden="true">
-                <span class="charteri-plane"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.5 15.5 14 11V4.5a2 2 0 0 0-4 0V11l-7.5 4.5v2l7.5-2.3v5.3l-2.2 1.6v1.6l4.2-1.2 4.2 1.2v-1.6L14 20.5v-5.3l7.5 2.3z"/></svg></span>
-              </span>
-              <span><span class="code">VIE</span><span class="city">Вена</span></span>
-            </div>
             <div class="charteri-chips">
-              <span class="charteri-chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>Лучшие цены на билеты</span>
-              <span class="charteri-chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Надёжно и быстро</span>
-              <span class="charteri-chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>Прямые рейсы в Австрию</span>
+              <span class="charteri-chip"><span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg></span><span>Лучшие цены<br>на билеты</span></span>
+              <span class="charteri-chip"><span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span>Надёжно<br>и быстро</span></span>
+              <span class="charteri-chip"><span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.5 15.5 14 11V4.5a2 2 0 0 0-4 0V11l-7.5 4.5v2l7.5-2.3v5.3l-2.2 1.6v1.6l4.2-1.2 4.2 1.2v-1.6L14 20.5v-5.3l7.5 2.3z"/></svg></span><span>Прямые рейсы<br>в Австрию</span></span>
             </div>
           </div>
-          <div class="charteri-stub">
-            <svg class="charteri-owl" viewBox="0 0 170 150" aria-hidden="true"><use href="#owl-fly"></use></svg>
-            <span class="charteri-stub-label">Boarding · Direct flight</span>
-            <span class="barcode barcode--white" aria-hidden="true"></span>
-            <a class="btn charteri-btn" href="https://charteri.uz" target="_blank" rel="noopener">Перейти <span class="btn-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-          </div>
+          <a class="btn charteri-btn" href="https://charteri.uz" target="_blank" rel="noopener">Перейти <span class="btn-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
         </article>
       </div>
     </section>
