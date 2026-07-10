@@ -1156,16 +1156,79 @@
     .englibee-head { display: flex; align-items: flex-start; gap: 26px; }
     .englibee-owl { width: clamp(90px, 16vw, 132px); flex-shrink: 0; display: none; }
     @media (min-width: 760px) { .englibee-owl { display: block; } }
-    .eng-logo-card {
+    /* ——— Анимированная сцена логотипа Englibee ——— */
+    .eng-logo-stage {
+      position: relative;
       flex-shrink: 0;
-      width: clamp(104px, 16vw, 148px);
-      background: #fff;
-      border-radius: 24px;
-      padding: 10px;
-      box-shadow: 0 12px 34px rgba(0, 0, 0, .3);
+      width: clamp(140px, 19vw, 184px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
       align-self: flex-start;
     }
+    .eng-logo-card {
+      position: relative;
+      z-index: 3;
+      width: 74%;
+      background: #fff;
+      border-radius: 26px;
+      padding: 10px;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, .4), 0 0 0 1px rgba(255, 255, 255, .05);
+      overflow: hidden;
+    }
     .eng-logo-card img { width: 100%; height: auto; display: block; }
+    .eng-logo-card::after {
+      content: "";
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(116deg, transparent 34%, rgba(255, 255, 255, .6) 47%, rgba(255, 255, 255, .18) 54%, transparent 66%);
+      transform: translateX(-130%);
+    }
+    .eng-glow {
+      position: absolute; z-index: 1; inset: -4%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 46%, rgba(198, 242, 76, .62), rgba(108, 92, 231, .42) 44%, transparent 70%);
+      filter: blur(16px);
+      opacity: .8;
+    }
+    .eng-ring {
+      position: absolute; z-index: 2; inset: 3%;
+      border: 2px dashed rgba(198, 242, 76, .4);
+      border-radius: 50%;
+    }
+    .eng-orbit { position: absolute; z-index: 4; inset: 3%; }
+    .eng-bee-holder { position: absolute; top: -11px; left: 50%; margin-left: -16px; width: 32px; }
+    .eng-bee { width: 32px; height: auto; display: block; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .4)); }
+    .eng-bee-wing { transform-origin: 22px 11px; }
+    .eng-spark {
+      position: absolute; z-index: 4; width: 13px; height: 13px; color: var(--eng-lime); opacity: .85;
+    }
+    .eng-spark::before {
+      content: ""; position: absolute; inset: 0; background: currentColor;
+      clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+    }
+    .eng-spark--1 { top: 4%; right: 10%; }
+    .eng-spark--2 { bottom: 14%; left: 1%; width: 10px; height: 10px; color: #b3a6ff; }
+    .eng-spark--3 { top: 46%; right: -1%; width: 9px; height: 9px; color: #fff; }
+    @media (prefers-reduced-motion: no-preference) {
+      .eng-logo-card { animation: engFloat 5.5s var(--ease-soft) infinite; }
+      .eng-logo-card::after { animation: engShine 7s ease-in-out 2s infinite; }
+      .eng-glow { animation: engGlow 4.6s ease-in-out infinite; }
+      .eng-orbit { animation: engSpin 15s linear infinite; }
+      .eng-bee-holder { animation: engSpinRev 15s linear infinite; }
+      .eng-bee { animation: engBuzz .9s ease-in-out infinite; }
+      .eng-bee-wing { animation: engFlutter .12s ease-in-out infinite alternate; }
+      .eng-spark { animation: engTwinkle 3.2s ease-in-out infinite; }
+      .eng-spark--2 { animation-delay: .9s; }
+      .eng-spark--3 { animation-delay: 1.7s; }
+    }
+    @keyframes engFloat { 0%, 100% { transform: translateY(0) rotate(-2.5deg); } 50% { transform: translateY(-10px) rotate(2.5deg); } }
+    @keyframes engGlow { 0%, 100% { transform: scale(1); opacity: .62; } 50% { transform: scale(1.16); opacity: .95; } }
+    @keyframes engSpin { to { transform: rotate(360deg); } }
+    @keyframes engSpinRev { to { transform: rotate(-360deg); } }
+    @keyframes engBuzz { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    @keyframes engFlutter { from { transform: scaleY(1); } to { transform: scaleY(.55); } }
+    @keyframes engShine { 0% { transform: translateX(-130%); } 22%, 100% { transform: translateX(240%); } }
+    @keyframes engTwinkle { 0%, 100% { opacity: .18; transform: scale(.55); } 50% { opacity: 1; transform: scale(1); } }
     .section--ink .eyebrow { color: var(--gold); }
     .englibee-text { color: rgba(255, 255, 255, .82); font-size: 1.02rem; margin-top: 24px; max-width: 720px; }
     .partner-plate {
@@ -2379,7 +2442,35 @@
     <section class="section section--ink" id="englibee" aria-label="Языковая подготовка с Englibee">
       <div class="container englibee-inner">
         <div class="englibee-head">
-          <span class="eng-logo-card reveal"><img src="assets/englibee-logo.png" alt="Логотип Englibee" width="778" height="820" loading="lazy"></span>
+          <div class="eng-logo-stage reveal">
+            <span class="eng-glow" aria-hidden="true"></span>
+            <span class="eng-ring" aria-hidden="true"></span>
+            <span class="eng-orbit" aria-hidden="true">
+              <span class="eng-bee-holder">
+                <svg class="eng-bee" viewBox="0 0 44 34" aria-hidden="true">
+                  <defs><clipPath id="engBeeBody"><ellipse cx="24" cy="20" rx="13" ry="9.5"/></clipPath></defs>
+                  <g class="eng-bee-wing">
+                    <ellipse cx="18" cy="9" rx="7.6" ry="4.6" fill="#fff" opacity=".92" transform="rotate(-20 18 9)"/>
+                    <ellipse cx="27" cy="9" rx="7.6" ry="4.6" fill="#fff" opacity=".92" transform="rotate(20 27 9)"/>
+                  </g>
+                  <path d="M36 20l7.5-3.2v6.4z" fill="#2b2350"/>
+                  <g clip-path="url(#engBeeBody)">
+                    <rect x="0" y="0" width="44" height="34" fill="#6C5CE7"/>
+                    <rect x="18.4" y="0" width="4.3" height="34" fill="#C6F24C"/>
+                    <rect x="27" y="0" width="4.3" height="34" fill="#C6F24C"/>
+                  </g>
+                  <circle cx="12" cy="20" r="7" fill="#2b2350"/>
+                  <circle cx="10" cy="18.4" r="1.8" fill="#fff"/>
+                  <path d="M9 13.5Q6 9 8.6 6.3" stroke="#2b2350" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+                  <circle cx="8.4" cy="5.8" r="1.7" fill="#C6F24C"/>
+                </svg>
+              </span>
+            </span>
+            <i class="eng-spark eng-spark--1" aria-hidden="true"></i>
+            <i class="eng-spark eng-spark--2" aria-hidden="true"></i>
+            <i class="eng-spark eng-spark--3" aria-hidden="true"></i>
+            <span class="eng-logo-card"><img src="assets/englibee-logo.png" alt="Логотип Englibee" width="778" height="820" loading="lazy"></span>
+          </div>
           <div>
             <span class="eyebrow reveal">Партнёрство</span>
             <h2 class="section-title reveal">Языковая подготовка с <em>Englibee</em></h2>
