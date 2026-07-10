@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+<!--
+  Фотографии вузов (assets/uni/) — Wikimedia Commons:
+  uw-main       Universität Wien Hauptgebäude (Ian Ehm) — CC BY 4.0, © Ian Ehm
+  uw-festsaal   Festsaal Universität Wien — CC BY 2.5, © Florian Prischl
+  uw-arkaden    Arkadenhof der Universität Wien — CC BY-SA 4.0, © Hubertl
+  tu-main       TU Wien mainbuilding mainentrance northview — CC BY-SA 3.0 AT, © Peter Haas
+  tu-kuppelsaal Kuppelsaal TU Wien — CC BY-SA 3.0 AT, © Pezi
+  tu-karlskirche Wien, Karlskirche und TU — CC BY-SA 3.0 AT, © Fyona A. Hallé
+  wu-lc         Wien 02 Campus WU a — CC0, © Gugerell
+  wu-d4         Campus WU D4 — CC BY-SA 3.0 AT, © Pezi
+  wu-nordwest   Wien - WU Campus, Nordwestbereich — CC BY-SA 4.0
+  graz-main     Graz - Universität, Hauptgebäude (a) — CC BY-SA 4.0
+  graz-resowi   Uni Graz Resowi 2 — CC BY-SA 4.0, © Universität Graz
+  graz-zmb      Uni Graz ZMB 2 — CC BY-SA 4.0, © Universität Graz
+-->
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -650,6 +665,7 @@
     .uni-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
     .uni-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 2px solid var(--ink); border-radius: 12px; background: var(--blush); }
     .uni-gallery img.img-failed { opacity: 0; }
+    .uni-credit { margin: 8px 0 0; font-size: .72rem; color: var(--gray); opacity: .7; letter-spacing: .02em; }
     .uni-modal-cta { margin-top: 28px; width: 100%; }
     .uni-forwhom { color: var(--ink); font-size: .98rem; font-weight: 600; }
     .uni-forwhom b { color: var(--red); }
@@ -2730,8 +2746,7 @@
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
       <div class="uni-hero">
-        <!-- TODO: заменить на фото главного здания Universität Wien -->
-        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?w=1200&q=72&auto=format&fit=crop" alt="Историческая университетская библиотека" loading="lazy" onerror="this.classList.add('img-failed')">
+        <img src="assets/uni/uw-main.jpg" alt="Главное здание Венского университета на бульваре Рингштрассе" loading="lazy" onerror="this.classList.add('img-failed')">
         <span class="uni-hero-badge">
           <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#fff" stroke="#111" stroke-width="1.6"/><circle cx="50" cy="50" r="40" fill="none" stroke="#111" stroke-width="1"/><path id="uwRingB" d="M50 11a39 39 0 1 1-.01 0" fill="none"/><text font-family="Georgia,serif" font-size="7" font-weight="600" letter-spacing="1.3" fill="#111"><textPath href="#uwRingB" startOffset="2%">· VIENNENSIS · SAPIENTIAE · STVDII ·</textPath></text><path d="M31 44a19 15 0 0 1 38 0" fill="none" stroke="#111" stroke-width="1.3"/><path d="M31 44v25M69 44v25M29 70h42" stroke="#111" stroke-width="1.3" stroke-linecap="round"/><circle cx="50" cy="45" r="4.6" fill="none" stroke="#111" stroke-width="1.3"/><path d="M44.5 69.5 46 52a4 4 0 0 1 8 0l1.5 17.5z" fill="none" stroke="#111" stroke-width="1.3" stroke-linejoin="round"/><rect x="54.5" y="48" width="7.5" height="8.5" fill="none" stroke="#111" stroke-width="1.1"/><line x1="42" y1="49" x2="45.5" y2="63" stroke="#111" stroke-width="1.1"/></svg>
         </span>
@@ -2755,10 +2770,10 @@
         <ul class="uni-strengths"><li>Психология</li><li>Международные отношения</li><li>Право</li><li>Экономика</li><li>IT</li><li>Языки</li><li>Гуманитарные науки</li><li>Естественные науки</li></ul>
         <h4>Кампус и город</h4>
         <div class="uni-gallery">
-          <!-- TODO: заменить на реальные фото кампуса -->
-          <img src="https://images.unsplash.com/photo-1573599852326-2d4da0bbe613?w=600&q=68&auto=format&fit=crop" alt="Вена, Австрия" loading="lazy" onerror="this.classList.add('img-failed')">
-          <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=68&auto=format&fit=crop" alt="Университетская библиотека" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="assets/uni/uw-festsaal.jpg" alt="Большой парадный зал (Festsaal) университета" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="assets/uni/uw-arkaden.jpg" alt="Аркадный двор главного здания" loading="lazy" onerror="this.classList.add('img-failed')">
         </div>
+        <p class="uni-credit">Фото: Wikimedia Commons</p>
         <a href="#lead-form" class="btn btn-red uni-modal-cta">Подобрать программу в этом вузе <span class="btn-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
     </div>
@@ -2770,8 +2785,7 @@
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
       <div class="uni-hero">
-        <!-- TODO: заменить на фото Campus WU (архитектура Захи Хадид) -->
-        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&q=72&auto=format&fit=crop" alt="Современная университетская архитектура" loading="lazy" onerror="this.classList.add('img-failed')">
+        <img src="assets/uni/wu-lc.jpg" alt="Кампус WU: Библиотека и Learning Center (архитектор Заха Хадид)" loading="lazy" onerror="this.classList.add('img-failed')">
         <span class="uni-hero-badge">
           <svg viewBox="0 0 130 92" aria-hidden="true"><text x="65" y="54" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="600" font-size="62" letter-spacing="-3" fill="#111">WU</text><text x="65" y="82" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="500" font-size="14" letter-spacing="7" fill="#111">VIENNA</text></svg>
         </span>
@@ -2795,10 +2809,10 @@
         <ul class="uni-strengths"><li>Международный менеджмент</li><li>Маркетинг</li><li>Финансы</li><li>Бизнес-информатика</li><li>Экономика</li><li>Право</li></ul>
         <h4>Кампус и город</h4>
         <div class="uni-gallery">
-          <!-- TODO: заменить на реальные фото кампуса -->
-          <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=600&q=68&auto=format&fit=crop" alt="Современный кампус" loading="lazy" onerror="this.classList.add('img-failed')">
-          <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=68&auto=format&fit=crop" alt="Студенты за учёбой" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="assets/uni/wu-d4.jpg" alt="Современный корпус кампуса WU" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="assets/uni/wu-nordwest.jpg" alt="Кампус WU в Вене" loading="lazy" onerror="this.classList.add('img-failed')">
         </div>
+        <p class="uni-credit">Фото: Wikimedia Commons</p>
         <a href="#lead-form" class="btn btn-red uni-modal-cta">Подобрать программу в этом вузе <span class="btn-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
     </div>
@@ -2810,8 +2824,7 @@
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
       <div class="uni-hero">
-        <!-- TODO: заменить на фото главного здания TU Wien у Карлсплац -->
-        <img src="https://images.unsplash.com/photo-1524230572899-a752b3835840?w=1200&q=72&auto=format&fit=crop" alt="Университетская архитектура" loading="lazy" onerror="this.classList.add('img-failed')">
+        <img src="assets/uni/tu-main.jpg" alt="Главное здание TU Wien у площади Карлсплац" loading="lazy" onerror="this.classList.add('img-failed')">
         <span class="uni-hero-badge">
           <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="1.5" y="1.5" width="97" height="97" rx="16" fill="#006699"/><rect x="14" y="23" width="33" height="9" fill="#fff"/><rect x="25.5" y="23" width="10" height="41" fill="#fff"/><path d="M52 23 L52 47 A17 17 0 0 0 86 47 L86 23 L76 23 L76 47 A7 7 0 0 1 62 47 L62 23 Z" fill="#fff"/><text x="50" y="85" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="700" font-size="14" letter-spacing="3.5" fill="#fff">WIEN</text></svg>
         </span>
@@ -2835,10 +2848,10 @@
         <ul class="uni-strengths"><li>Разработка ПО</li><li>Data Science</li><li>Архитектура</li><li>Робототехника</li><li>Машиностроение</li><li>Гражданское строительство</li><li>Кибербезопасность</li></ul>
         <h4>Кампус и город</h4>
         <div class="uni-gallery">
-          <!-- TODO: заменить на реальные фото кампуса -->
-          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=68&auto=format&fit=crop" alt="Современное здание университета" loading="lazy" onerror="this.classList.add('img-failed')">
-          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=68&auto=format&fit=crop" alt="Студенты за учёбой" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="assets/uni/tu-kuppelsaal.jpg" alt="Куппельзал (зал под куполом) TU Wien" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="assets/uni/tu-karlskirche.jpg" alt="Карлскирхе и корпус TU Wien в центре Вены" loading="lazy" onerror="this.classList.add('img-failed')">
         </div>
+        <p class="uni-credit">Фото: Wikimedia Commons</p>
         <a href="#lead-form" class="btn btn-red uni-modal-cta">Подобрать программу в этом вузе <span class="btn-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
     </div>
@@ -2850,8 +2863,7 @@
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
       <div class="uni-hero">
-        <!-- TODO: заменить на фото кампуса Uni Graz -->
-        <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=72&auto=format&fit=crop" alt="Старый город — атмосфера Граца, Австрия" loading="lazy" onerror="this.classList.add('img-failed')">
+        <img src="assets/uni/graz-main.jpg" alt="Главное здание Университета Граца (Karl-Franzens-Universität)" loading="lazy" onerror="this.classList.add('img-failed')">
         <span class="uni-hero-badge">
           <svg viewBox="0 0 104 92" aria-hidden="true"><rect x="1" y="1" width="102" height="90" fill="#fff" stroke="#D6D6D6" stroke-width="2"/><rect x="35" y="3" width="66" height="63" fill="#FFD500"/><rect x="35" y="66" width="66" height="23" fill="#111"/><text x="68" y="52" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="800" font-size="27" fill="#111" letter-spacing="-1">UNI</text><text x="68" y="85" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="800" font-size="22" fill="#FFD500" letter-spacing="-1">GRAZ</text></svg>
         </span>
@@ -2875,10 +2887,10 @@
         <ul class="uni-strengths"><li>Юриспруденция</li><li>Бизнес и экономика</li><li>Химия</li><li>Физика</li><li>Биология</li><li>Гуманитарные науки</li><li>Экология и регионоведение</li></ul>
         <h4>Кампус и город</h4>
         <div class="uni-gallery">
-          <!-- TODO: заменить на реальные фото кампуса -->
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=68&auto=format&fit=crop" alt="Альпы Штирии" loading="lazy" onerror="this.classList.add('img-failed')">
-          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=68&auto=format&fit=crop" alt="Здание университета" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="assets/uni/graz-resowi.jpg" alt="Современный корпус юридического факультета (RESOWI)" loading="lazy" onerror="this.classList.add('img-failed')">
+          <img src="assets/uni/graz-zmb.jpg" alt="Центр молекулярной биологии Университета Граца" loading="lazy" onerror="this.classList.add('img-failed')">
         </div>
+        <p class="uni-credit">Фото: Wikimedia Commons</p>
         <a href="#lead-form" class="btn btn-red uni-modal-cta">Подобрать программу в этом вузе <span class="btn-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
     </div>
