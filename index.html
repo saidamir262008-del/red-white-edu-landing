@@ -981,27 +981,29 @@
       position: relative;
       margin-top: 12px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 13px;
-      padding: 12px 15px;
+      text-align: center;
+      gap: 10px;
+      padding: 16px 16px 18px;
       border: 2px solid var(--eng-purple);
       border-radius: 16px;
-      background: linear-gradient(110deg, rgba(198, 242, 76, .38), rgba(108, 92, 231, .1) 62%, rgba(198, 242, 76, .22));
+      background: linear-gradient(135deg, rgba(198, 242, 76, .38), rgba(108, 92, 231, .1) 62%, rgba(198, 242, 76, .22));
       box-shadow: 3px 3px 0 rgba(108, 92, 231, .2);
       transition: transform .28s var(--ease-soft), box-shadow .28s var(--ease-soft);
     }
     .eng-cobrand:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 rgba(108, 92, 231, .28); }
     .eng-cobrand-logo-wrap {
       flex-shrink: 0;
-      background: #fff; border-radius: 11px; padding: 5px 8px;
-      box-shadow: 0 5px 14px rgba(108, 92, 231, .28);
+      background: #fff; border-radius: 13px; padding: 6px 10px;
+      box-shadow: 0 6px 16px rgba(108, 92, 231, .3);
     }
-    .eng-cobrand-logo { height: 46px; width: auto; display: block; }
-    .eng-cobrand-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1; }
-    .eng-cobrand-title { font: 800 .74rem var(--font-body); letter-spacing: .11em; text-transform: uppercase; color: var(--eng-purple); }
-    .eng-cobrand-body small { font: 600 .74rem var(--font-body); color: var(--ink); line-height: 1.25; }
+    .eng-cobrand-logo { height: 52px; width: auto; display: block; }
+    .eng-cobrand-body { display: flex; flex-direction: column; align-items: center; gap: 5px; width: 100%; }
+    .eng-cobrand-title { font: 700 .82rem var(--font-disp); letter-spacing: .03em; text-transform: uppercase; color: var(--eng-purple); }
+    .eng-cobrand-body small { font: 600 .76rem var(--font-body); color: var(--ink); line-height: 1.3; max-width: 32ch; }
     /* уровень немецкого: с нуля (A0) → A2 */
-    .eng-level { display: flex; align-items: center; gap: 8px; margin-top: 3px; }
+    .eng-level { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 4px; width: min(100%, 280px); }
     .eng-level-cap { font: 800 .64rem var(--font-disp); color: var(--eng-purple); flex-shrink: 0; white-space: nowrap; }
     .eng-level-cap--goal { color: #2b2350; }
     .eng-level-track {
