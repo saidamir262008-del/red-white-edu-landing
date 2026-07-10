@@ -988,7 +988,7 @@
       background: linear-gradient(100deg, rgba(198, 242, 76, .28), rgba(108, 92, 231, .08));
       box-shadow: 3px 3px 0 rgba(108, 92, 231, .18);
     }
-    .eng-cobrand-bee { width: 42px; height: 42px; flex-shrink: 0; }
+    .eng-cobrand-logo { height: 48px; width: auto; flex-shrink: 0; background: #fff; border-radius: 10px; padding: 4px 7px; display: block; }
     .eng-cobrand-txt { display: flex; flex-direction: column; gap: 1px; line-height: 1.2; }
     .eng-cobrand-txt .eng-word { font-size: 1.02rem; }
     .eng-cobrand-txt small {
@@ -1005,16 +1005,14 @@
     .partner-englibee {
       display: flex;
       align-items: center;
-      gap: 12px;
-      background: var(--eng-lime);
+      background: #fff;
       border: 2px solid var(--eng-purple);
-      border-radius: 14px;
-      padding: 12px 18px 12px 12px;
+      border-radius: 16px;
+      padding: 8px 14px;
       transform: rotate(-2deg);
       box-shadow: 4px 4px 0 rgba(108, 92, 231, .35);
     }
-    .partner-englibee .eng-word { font-size: 1.35rem; }
-    .partner-englibee-bee { width: 44px; height: 44px; flex-shrink: 0; }
+    .partner-eng-logo { height: 74px; width: auto; display: block; }
 
     /* ============ ОТДЕЛЬНЫЕ УСЛУГИ ============ */
     .services-sub { margin-top: 78px; }
@@ -1158,6 +1156,16 @@
     .englibee-head { display: flex; align-items: flex-start; gap: 26px; }
     .englibee-owl { width: clamp(90px, 16vw, 132px); flex-shrink: 0; display: none; }
     @media (min-width: 760px) { .englibee-owl { display: block; } }
+    .eng-logo-card {
+      flex-shrink: 0;
+      width: clamp(104px, 16vw, 148px);
+      background: #fff;
+      border-radius: 24px;
+      padding: 10px;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .3);
+      align-self: flex-start;
+    }
+    .eng-logo-card img { width: 100%; height: auto; display: block; }
     .section--ink .eyebrow { color: var(--gold); }
     .englibee-text { color: rgba(255, 255, 255, .82); font-size: 1.02rem; margin-top: 24px; max-width: 720px; }
     .partner-plate {
@@ -2199,9 +2207,8 @@
                     <strong>Языковой модуль от Englibee</strong>
                     <div class="feat-desc"><div class="feat-desc-inner"><p>Обучение немецкому языку с нуля от А0 до уверенного уровня А2. Официальное сотрудничество с языковой школой Englibee. Полное закрытие вопроса с языковой подготовкой под контролем экспертов.</p></div></div>
                     <div class="eng-cobrand">
-                      <svg class="eng-cobrand-bee" viewBox="0 0 100 100" aria-hidden="true"><use href="#englibee-bee"></use></svg>
+                      <img class="eng-cobrand-logo" src="assets/englibee-logo.png" alt="Логотип Englibee" loading="lazy">
                       <span class="eng-cobrand-txt">
-                        <span class="eng-word">englibee</span>
                         <small>Языковой партнёр · A0 → A2</small>
                       </span>
                     </div>
@@ -2372,7 +2379,7 @@
     <section class="section section--ink" id="englibee" aria-label="Языковая подготовка с Englibee">
       <div class="container englibee-inner">
         <div class="englibee-head">
-          <svg class="englibee-owl reveal" viewBox="0 0 150 150" aria-hidden="true"><use href="#owl-bee"></use></svg>
+          <span class="eng-logo-card reveal"><img src="assets/englibee-logo.png" alt="Логотип Englibee" width="778" height="820" loading="lazy"></span>
           <div>
             <span class="eyebrow reveal">Партнёрство</span>
             <h2 class="section-title reveal">Языковая подготовка с <em>Englibee</em></h2>
@@ -2386,10 +2393,8 @@
             RED WHITE EDU
           </span>
           <svg class="partner-link-ico" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          <!-- TODO: заменить на официальный логотип Englibee (сейчас — реконструкция по фирменному логотипу) -->
           <span class="partner-englibee">
-            <svg class="partner-englibee-bee" viewBox="0 0 100 100" aria-hidden="true"><use href="#englibee-bee"></use></svg>
-            <span class="eng-word">englibee</span>
+            <img class="partner-eng-logo" src="assets/englibee-logo.png" alt="Логотип Englibee" loading="lazy">
           </span>
         </div>
         <div class="englibee-features">
